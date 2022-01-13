@@ -1,24 +1,22 @@
-# vue-book-tracking-app
+# Vue Book Tracking Application
 
-## Project setup
-```
-npm install
-```
+## Dev Setup
 
-### Compiles and hot-reloads for development
-```
+### Client
+
+```sh
+cd client
+npm i
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+### Server
+
+```sh
+cd server
+npm i
+npm run dev
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### DB
+![](https://lucid.app/publicSegments/view/e67fe274-03e0-47d8-930b-040e8792c02c/image.png)
