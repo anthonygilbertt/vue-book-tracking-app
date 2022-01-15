@@ -74,6 +74,8 @@
         src="https://www.graphicsfuel.com/wp-content/uploads/2012/07/books-icon-512.png"
       />
       <h1 class="md-layout-item">{{ test }}</h1>
+      <p>{{ someSexyJSONData }}</p>
+      <button @click="getData">Get that sexy JSON data</button>
     </div>
 
     <!-- </md-avatar> -->
@@ -92,18 +94,30 @@ export default Vue.extend({
   data() {
     return {
       test: "Book Tracker" as string,
+      someSexyJSONData: [] as null,
       // use lower-case primitives for consistency
     };
   },
-  // methods: {
-  //   handleClick(event: any): string {
-  //     console.log(typeof event);
-  //     console.log("button clicked");
-  //     // this.test = 1;
-  //     // this.test = `${this.test}  1`;
-  //     return this.test;
-  //   },
-  // },
+  methods: {
+    //   handleClick(event: any): string {
+    //     console.log(typeof event);
+    //     console.log("button clicked");
+    //     // this.test = 1;
+    //     // this.test = `${this.test}  1`;
+    //     return this.test;
+    //   },
+    getData() {
+      fetch("http://localhost:3000/getStatuses")
+        .then((res) => {
+          console.log(res);
+          return res.json();
+        })
+        .then((res) => {
+          console.log(res);
+          this.someSexyJSONData = res;
+        });
+    },
+  },
 });
 </script>
 
