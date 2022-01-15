@@ -6,9 +6,31 @@ const passport = require('passport');
 const cookieSession = require('cookie-session')
     // require('./passport-setup');
 
-app.use(cors())
 
-// parse application/x-www-form-urlencoded
+
+
+
+
+
+const pg = require('pg')
+const config = {
+    database: 'books-db'
+}
+const pool = new pg.Pool(config);
+pool.connect((err, client, done) => {
+    if (err) throw err;
+    client.query('SELECT  * FROM  book_status', (err, res) => {
+        if (err)
+            console.log(err.stack);
+        else {
+            console.log(res.rows);
+        }
+        pool.end()
+    })
+})
+
+app.use(cors())
+    // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
