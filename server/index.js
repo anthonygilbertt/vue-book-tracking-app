@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const passport = require('passport');
 const cookieSession = require('cookie-session')
-require('./passport-setup');
+    // require('./passport-setup');
 
 app.use(cors())
 
@@ -34,21 +34,25 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Example protected and unprotected routes
-app.get('/', (req, res) => res.send('Example Home page!'))
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Book Tracking Application! 📚'
+    })
+})
 app.get('/failed', (req, res) => res.send('You Failed to log in!'))
 
 // In this route you can see that if the user is logged in u can acess his info in: req.user
 app.get('/good', isLoggedIn, (req, res) => res.send(`Welcome mr ${req.user.displayName}!`))
 
 // Auth Routes
-app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+// app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/failed' }),
-    function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/good');
-    }
-);
+// app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/failed' }),
+//     function(req, res) {
+//         // Successful authentication, redirect home.
+//         res.redirect('/good');
+//     }
+// );
 
 app.get('/logout', (req, res) => {
     req.session = null;
