@@ -4,7 +4,13 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"
+          ><img
+            class="md-layout-item"
+            id="book-icon"
+            alt="Book Icon."
+            src="https://www.graphicsfuel.com/wp-content/uploads/2012/07/books-icon-512.png"
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -67,12 +73,6 @@
       </div>
     </nav>
     <div>
-      <img
-        class="md-layout-item"
-        id="book-icon"
-        alt="Book Icon."
-        src="https://www.graphicsfuel.com/wp-content/uploads/2012/07/books-icon-512.png"
-      />
       <h1 class="md-layout-item">{{ test }}</h1>
       <p>{{ someSexyJSONData }}</p>
       <button @click="getData">Get that sexy JSON data</button>
@@ -94,7 +94,7 @@ export default Vue.extend({
   data() {
     return {
       test: "Book Tracker" as string,
-      someSexyJSONData: [] as null,
+      someSexyJSONData: null as null,
       // use lower-case primitives for consistency
     };
   },
@@ -147,7 +147,7 @@ a {
 #book-icon {
   width: 50px;
   height: 50px;
-  padding-left: 5%;
+  padding-left: 0%;
   margin-left: 0%;
 }
 #avataricon {

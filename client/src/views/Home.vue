@@ -14,7 +14,7 @@
 <script lang="ts">
 import Vue from "vue";
 // import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-import Header from "@/components/Header.vue";
+import Header from "../components/Header.vue";
 // import Toread from "./components/Toread.vue";
 // import Reading from "./components/Reading.vue";
 // import Read from "./components/Read.vue";
