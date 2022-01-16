@@ -21,13 +21,12 @@
 
 <script>
     function getData() {
+        $.get("http://localhost:3000/", {}, function(data) {
+            console.log(data);
+        });
+
         document.getElementById("fetchedData").innerHTML = "test";
     }
-    // $('.my_selector').click(function(){
-    //    $.get('http://MY_SERVER_ADDR:3000/data', {}, function(data){
-    //         console.log(data)
-    //    });
-    // });
 </script>
 
 </html>

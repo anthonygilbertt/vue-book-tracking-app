@@ -1,7 +1,6 @@
 <template>
   <div class="md-layout md-gutter mdc-top-app-bar header-class md-elevation-1">
     <!-- <md-avatar id="avataricon"> -->
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"
@@ -74,8 +73,17 @@
     </nav>
     <div>
       <h1 class="md-layout-item">{{ test }}</h1>
-      <p>{{ someSexyJSONData }}</p>
-      <button @click="getData">Get that sexy JSON data</button>
+      <!--
+      <p v-if="bookStatusesData">Book Statuses: {{ bookStatusesData }}</p>
+      <p v-if="getBooks">Books Data: {{ booksData }}</p>
+      -->
+
+      <ul v-for="book in booksData" :key="book.id">
+        <li>Title: {{ book.title }}</li>
+        <li>Author: {{ book.author }}</li>
+      </ul>
+      <button @click="getStatuses">Get Book Statuses</button>
+      <button @click="getBooks">Get Books</button>
     </div>
 
     <!-- </md-avatar> -->
@@ -94,7 +102,9 @@ export default Vue.extend({
   data() {
     return {
       test: "Book Tracker" as string,
-      someSexyJSONData: null as null,
+      bookStatusesData: null,
+      booksData: null,
+      bookTitleArray: [] as object,
       // use lower-case primitives for consistency
     };
   },
@@ -106,7 +116,7 @@ export default Vue.extend({
     //     // this.test = `${this.test}  1`;
     //     return this.test;
     //   },
-    getData() {
+    getStatuses() {
       fetch("http://localhost:3000/getStatuses")
         .then((res) => {
           console.log(res);
@@ -114,7 +124,25 @@ export default Vue.extend({
         })
         .then((res) => {
           console.log(res);
-          this.someSexyJSONData = res;
+          this.bookStatusesData = res;
+        });
+    },
+    getBooks() {
+      const bookTitleArray = [];
+
+      fetch("http://localhost:3000/getBooks")
+        .then((res) => {
+          console.log(res);
+          return res.json();
+        })
+        .then((res) => {
+          console.log("res: ", res);
+          this.booksData = res;
+
+          for (let book in res) {
+            bookTitleArray.push(book);
+          }
+          this.bookTitleArray.value = bookTitleArray;
         });
     },
   },
@@ -152,5 +180,9 @@ a {
 }
 #avataricon {
   margin-left: 50px;
+}
+.nav-item,
+.nav-link {
+  color: rgb(215, 240, 240);
 }
 </style>
