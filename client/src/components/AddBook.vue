@@ -88,4 +88,32 @@ export default Vue.extend({
 .formboxes {
   background-color: white;
 }
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", "sans-serif";
+  color: var(--gray);
+}
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px rgba(50, 50, 50, 0.05);
+  border: 1px solid var(--navy-blue);
+  background: white;
+}
+
+input,
+textarea {
+  border: 0;
+  border-bottom: 1px solid var(--navy-blue);
+  padding: 10px;
+  outline: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20px auto;
+}
 </style>

@@ -1,0 +1,40 @@
+/*Google Fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/* variables */
+
+:root {
+    --gray: #353535;
+    --ming: #3C6E71;
+    --white: #FFFFFF;
+    --light-gray: #D9D9D9;
+    --navy-blue: #284B63;
+    --warning: #da0f41;
+}
+
+
+/* Base Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', 'sans-serif';
+    /* color: var(--gray); */
+    color: var(--white);
+}
+
+html,
+body {
+    background-color: var(--ming);
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.error {
+    color: var(--warning);
+    font-size: 14px;
+    margin: 16px 0;
+}

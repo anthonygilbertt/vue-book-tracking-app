@@ -3,7 +3,7 @@
   <div>
     <Navbar />
 
-    <form>
+    <form @submit.prevent="loginHandler">
       <h2>Login</h2>
       <fieldset>
         <div class="form-group">
@@ -35,9 +35,7 @@
           />
         </div>
 
-        <button type="submit" @click="loginHandler" class="btn btn-info">
-          Login
-        </button>
+        <button type="submit" class="btn btn-info">Login</button>
       </fieldset>
     </form>
   </div>
@@ -53,6 +51,12 @@ import Navbar from "../../components/Navbar.vue";
 export default Vue.extend({
   components: {
     Navbar,
+  },
+  data: () => {
+    return {
+      email: "" as string,
+      password: "" as string,
+    };
   },
   // export default {
   //   setup() {
@@ -71,9 +75,40 @@ export default Vue.extend({
   //   },
   // };
   methods: {
-    loginHandler(e) {
-      console.log(e);
+    async loginHandler() {
+      console.log("email: ", this.email);
+      console.log("password: ", this.password);
     },
   },
 });
 </script>
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", "sans-serif";
+  color: var(--gray);
+}
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px rgba(50, 50, 50, 0.05);
+  border: 1px solid var(--navy-blue);
+  background: white;
+}
+
+input,
+textarea {
+  border: 0;
+  border-bottom: 1px solid var(--navy-blue);
+  padding: 10px;
+  outline: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20px auto;
+}
+</style>

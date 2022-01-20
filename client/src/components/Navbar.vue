@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout md-gutter mdc-top-app-bar header-class md-elevation-1">
     <!-- <md-avatar id="avataricon"> -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <router-link class="nav-link active navbar-brand" to="/"
           ><img
@@ -60,7 +60,7 @@
               type="text"
               placeholder="Search for a book"
             />
-            <button class="btn btn-info my-2 my-sm-0" type="submit">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
               Search
             </button>
           </form>

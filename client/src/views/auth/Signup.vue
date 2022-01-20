@@ -1,10 +1,8 @@
 <template>
-  <!--  <form @submit.prevent="handleSubmit">-->
   <div>
     <Navbar />
 
-    <!--<form @submit.prevent="handleSubmit">-->
-    <form>
+    <form @submit.prevent="handleSignup">
       <h2>Sign up</h2>
       <fieldset>
         <div class="form-group">
@@ -17,6 +15,7 @@
             placeholder="Luke Skywalker"
             name="name"
             required
+            v-model="username"
           />
           <label for="exampleInputEmail1" class="form-label mt-4"
             >Email address</label
@@ -29,6 +28,7 @@
             placeholder="luke.skywalker@theforce.com"
             name="email"
             required
+            v-model="email"
           />
         </div>
         <div class="form-group">
@@ -42,15 +42,10 @@
             placeholder="********"
             name="password"
             required
+            v-model="password"
           />
         </div>
-        <button
-          type="submit"
-          class="btn btn-info"
-          @click.prevent="handleSignup"
-        >
-          Sign Up
-        </button>
+        <button type="submit" class="btn btn-info">Sign Up</button>
       </fieldset>
     </form>
   </div>
@@ -65,7 +60,18 @@ export default Vue.extend({
     Navbar,
   },
   data: () => {
-    return {};
+    return {
+      username: "" as string,
+      email: "" as string,
+      password: "" as string,
+    };
+  },
+  methods: {
+    async handleSignup() {
+      console.log("username:", this.username);
+      console.log("email: ", this.email);
+      console.log("password: ", this.password);
+    },
   },
   // methods: {
   //   handleSignup() {
@@ -98,3 +104,33 @@ export default Vue.extend({
   // };
 });
 </script>
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", "sans-serif";
+  color: var(--gray);
+}
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px rgba(50, 50, 50, 0.05);
+  border: 1px solid var(--navy-blue);
+  background: white;
+}
+
+input,
+textarea {
+  border: 0;
+  border-bottom: 1px solid var(--navy-blue);
+  padding: 10px;
+  outline: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20px auto;
+}
+</style>
