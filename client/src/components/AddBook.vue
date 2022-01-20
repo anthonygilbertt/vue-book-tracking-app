@@ -35,32 +35,12 @@ export default Vue.extend({
   },
   methods: {
     addBook() {
-      //   const url = "http://localhost:3000/results";
-      //   console.log("title: ", this.title);
-      //   console.log("author: ", this.author);
+      console.log("title: ", this.title);
+      console.log("author: ", this.author);
 
       const title = this.title;
       const author = this.author;
       const data = { title, author };
-
-      //   const options = {
-      //     method: "POST",
-      //     header: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     mode: "cors",
-      //     body: JSON.stringify({ data: "data" }),
-      //   };
-      //   fetch(url, options as any)
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       console.log("success: ", data);
-      //     })
-      //     .catch((error) => {
-      //       console.error("Error ", error);
-      //     });
-
-      //   const data = { username: "example" };
 
       fetch("http://localhost:3000/createBook", {
         method: "POST", // or 'PUT'
@@ -77,21 +57,9 @@ export default Vue.extend({
         .catch((error) => {
           console.error("Error:", error);
         });
-      //   options.body = JSON.stringify(jsonData);
-
-      //   fetch(url, options)
-      //     .then((response) => {
-      //       return response.json();
-      //     })
-      //     .then((result) => {
-      //       console.log("result: ", result);
-      //     });
-
-      /*
-        Reset the form values
-      */
       this.title = "";
       this.author = "";
+      alert("Book added");
     },
   },
 });

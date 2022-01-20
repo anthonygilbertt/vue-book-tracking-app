@@ -28,7 +28,7 @@
             type="password"
             name="password"
             class="form-control"
-            id="exampleInputPassword1"
+            id="inputPassword"
             placeholder="********"
             v-model="password"
             required

@@ -26,16 +26,13 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#"
-                >Book Tracker
-                <span class="visually-hidden">(current)</span>
-              </a>
+              <router-link class="nav-link active" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <router-link class="nav-link" to="/login">Login</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Signup</a>
+              <router-link class="nav-link" to="/signup">Signup</router-link>
             </li>
 
             <li class="nav-item dropdown">
@@ -102,7 +99,14 @@ h1 {
 h3 {
   margin: 40px 0 0;
 }
-
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
 a {
   color: #147449;
 }
