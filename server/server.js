@@ -19,18 +19,18 @@ app.get('/', (request, response) => {
 })
 
 // app.post('/results', (request, response) => {
-app.post('/posts', (request, response) => {
-    // response.json('request: ', request)
-    // response.json('response: ', response)
-    console.log('request: ', request);
-    // response.status(200).json('bloop')
-    // response.json.parse(request)
-})
+// app.post('/posts', (request, response) => {
+//     // response.json('request: ', request)
+//     // response.json('response: ', response)
+//     console.log('request: ', request);
+//     // response.status(200).json('bloop')
+//     // response.json.parse(request)
+// })
 
 app.get('/getStatuses', db.getStatuses)
 app.get('/getStatusesById', db.getStatusesById)
 app.get('/getBooks', db.getBooks)
-    // app.post('/createBook', db.createBook)
+app.post('/createBook', db.createBook)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

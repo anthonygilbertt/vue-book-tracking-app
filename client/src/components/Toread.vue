@@ -34,7 +34,7 @@
         >Reading</md-button
       >
       <!-- <md-button
-        v-on:click="deletebook"
+        @click="deletebook"
         class="md-raised md-accent md-mini formboxes"
         >Delete</md-button
       > -->

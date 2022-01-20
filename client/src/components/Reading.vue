@@ -12,7 +12,7 @@
       />
 
       <md-button
-        v-on:click="addedbook"
+        @click="addedbook"
         class="md-raised md-primary md-mini addbookbutn formboxes"
         >Add +</md-button
       >

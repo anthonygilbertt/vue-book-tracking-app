@@ -7,12 +7,11 @@
       <!-- <label class="formboxes">Add a book you have read</label> -->
       <BaseInputText
         v-model="newReadText"
-        placeholder="   Add a book you have read"
+        placeholder="Add a book you have read"
         @keydown.enter="addedbook"
       />
-
       <md-button
-        v-on:click="addedbook"
+        @click="addedbook"
         class="md-raised md-primary md-mini addbookbutn formboxes"
         >Add +</md-button
       >
@@ -32,8 +31,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import BaseInputText from "./BaseInputText.vue";
-import ReadlistItem from "./ReadlistItem.vue";
+import BaseInputText from "../components/BaseInputText.vue";
+import ReadlistItem from "../components/ReadingListItem.vue";
 export default Vue.extend({
   name: "Read",
   components: {

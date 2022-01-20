@@ -1,10 +1,12 @@
 <template>
+  <!--
   <md-list-item>
     {{ readingitem.text }}
-    <button id="deletebutton" @click="$emit('removereading', readingitem.id)">
-      Delete
-    </button>
   </md-list-item>
+    -->
+  <div>
+    <button id="deletebutton" @click="removereading">Delete</button>
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,6 +16,11 @@ export default Vue.extend({
     readingitem: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    removeReading() {
+      console.log("ReadingListItem component");
     },
   },
 });

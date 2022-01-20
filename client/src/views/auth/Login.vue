@@ -1,27 +1,59 @@
 <template>
   <!--<form @submit.prevent="handleSubmit">-->
+  <div>
+    <Navbar />
 
-  <form>
-    <h2>Login</h2>
+    <form>
+      <h2>Login</h2>
+      <fieldset>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="form-label mt-4"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="luke.skywalker@theforce.com"
+            v-model="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="form-label mt-4"
+            >Password</label
+          >
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="********"
+            v-model="password"
+            required
+          />
+        </div>
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" v-model="email" required />
-
-    <label for="password">Password:</label>
-    <input type="password" name="password" v-model="password" required />
-
-    <button>Login</button>
-    <!--<div v-if="error">{{ error.value }}</div>-->
-    <div>error.value</div>
-  </form>
+        <button type="submit" @click="loginHandler" class="btn btn-info">
+          Login
+        </button>
+      </fieldset>
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+// import { ref } from "vue";
+// import { useRouter } from "vue-router";
+// import useLogin from "@/composables/useLogin.js";
+import Navbar from "../../components/Navbar.vue";
+
 export default Vue.extend({
-  // import { ref } from "vue";
-  // import { useRouter } from "vue-router";
-  // import useLogin from "@/composables/useLogin.js";
+  components: {
+    Navbar,
+  },
   // export default {
   //   setup() {
   //     const email = ref("");
@@ -38,5 +70,10 @@ export default Vue.extend({
   //     return { email, password, handleSubmit, error };
   //   },
   // };
+  methods: {
+    loginHandler(e) {
+      console.log(e);
+    },
+  },
 });
 </script>

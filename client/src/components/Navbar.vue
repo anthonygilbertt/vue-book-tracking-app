@@ -10,6 +10,7 @@
             alt="Book Icon."
             src="https://www.graphicsfuel.com/wp-content/uploads/2012/07/books-icon-512.png"
         /></a>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -26,19 +27,17 @@
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
               <a class="nav-link active" href="#"
-                >Home
+                >Book Tracker
                 <span class="visually-hidden">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#">Signup</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
+
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -47,14 +46,14 @@
                 role="button"
                 aria-haspopup="true"
                 aria-expanded="false"
-                >Dropdown</a
+                >Filters</a
               >
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">To Read</a>
+                <a class="dropdown-item" href="#">Reading</a>
+                <a class="dropdown-item" href="#">Read</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" href="#">Archived</a>
               </div>
             </li>
           </ul>
@@ -72,18 +71,10 @@
       </div>
     </nav>
     <div>
-      <h1 class="md-layout-item">{{ test }}</h1>
       <!--
       <p v-if="bookStatusesData">Book Statuses: {{ bookStatusesData }}</p>
       <p v-if="getBooks">Books Data: {{ booksData }}</p>
       -->
-
-      <ul v-for="book in booksData" :key="book.id">
-        <li>Title: {{ book.title }}</li>
-        <li>Author: {{ book.author }}</li>
-      </ul>
-      <button @click="getStatuses">Get Book Statuses</button>
-      <button @click="getBooks">Get Books</button>
     </div>
 
     <!-- </md-avatar> -->
@@ -95,56 +86,9 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "Header",
+  name: "Navbar",
   props: {
     msg: String,
-  },
-  data() {
-    return {
-      test: "Book Tracker" as string,
-      bookStatusesData: null,
-      booksData: null,
-      bookTitleArray: [] as object,
-      // use lower-case primitives for consistency
-    };
-  },
-  methods: {
-    //   handleClick(event: any): string {
-    //     console.log(typeof event);
-    //     console.log("button clicked");
-    //     // this.test = 1;
-    //     // this.test = `${this.test}  1`;
-    //     return this.test;
-    //   },
-    getStatuses() {
-      fetch("http://localhost:3000/getStatuses")
-        .then((res) => {
-          console.log(res);
-          return res.json();
-        })
-        .then((res) => {
-          console.log(res);
-          this.bookStatusesData = res;
-        });
-    },
-    getBooks() {
-      const bookTitleArray = [];
-
-      fetch("http://localhost:3000/getBooks")
-        .then((res) => {
-          console.log(res);
-          return res.json();
-        })
-        .then((res) => {
-          console.log("res: ", res);
-          this.booksData = res;
-
-          for (let book in res) {
-            bookTitleArray.push(book);
-          }
-          this.bookTitleArray.value = bookTitleArray;
-        });
-    },
   },
 });
 </script>
@@ -158,14 +102,7 @@ h1 {
 h3 {
   margin: 40px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 a {
   color: #147449;
 }
