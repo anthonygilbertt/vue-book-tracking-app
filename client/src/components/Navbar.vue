@@ -3,13 +3,13 @@
     <!-- <md-avatar id="avataricon"> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"
+        <router-link class="nav-link active navbar-brand" to="/"
           ><img
             class="md-layout-item"
             id="book-icon"
             alt="Book Icon."
             src="https://www.graphicsfuel.com/wp-content/uploads/2012/07/books-icon-512.png"
-        /></a>
+        /></router-link>
 
         <button
           class="navbar-toggler"
