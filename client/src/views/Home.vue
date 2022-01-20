@@ -92,6 +92,38 @@ export default Vue.extend({
         });
     },
   },
+  mounted() {
+    const bookTitleArray = [];
+
+    fetch("http://localhost:3000/getBooks")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        this.booksData = res;
+
+        for (let book in res) {
+          bookTitleArray.push(book);
+        }
+        this.bookTitleArray.value = bookTitleArray;
+      });
+  },
+  updated() {
+    const bookTitleArray = [];
+
+    fetch("http://localhost:3000/getBooks")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        this.booksData = res;
+
+        for (let book in res) {
+          bookTitleArray.push(book);
+        }
+        this.bookTitleArray.value = bookTitleArray;
+      });
+  },
 });
 </script>
 <style>
