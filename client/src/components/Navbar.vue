@@ -26,15 +26,15 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <router-link class="nav-link active" to="/">Home</router-link>
-            </li>
-            <li class="nav-item">
               <router-link class="nav-link" to="/login">Login</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/signup">Signup</router-link>
             </li>
-
+            <li class="nav-item">
+              <router-link class="nav-link" to="/login">Logout</router-link>
+            </li>
+            <!--
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -53,6 +53,7 @@
                 <a class="dropdown-item" href="#">Archived</a>
               </div>
             </li>
+            -->
           </ul>
           <form class="d-flex">
             <input

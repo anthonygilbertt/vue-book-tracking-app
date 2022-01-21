@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="addBook">
     <fieldset>
       <div class="form-group">
         <label class="form-label mt-4">Book Title*</label>
@@ -9,7 +9,7 @@
           placeholder="Book Title"
           v-model="title"
         />
-        <label for="exampleInputEmail1" class="form-label mt-4">Author*</label>
+        <label for="inputAuthor" class="form-label mt-4">Author*</label>
         <input
           type="text"
           class="form-control"
@@ -18,7 +18,7 @@
         />
       </div>
 
-      <button @click.prevent="addBook" class="btn btn-info">Add Book</button>
+      <button class="btn btn-info">Add Book</button>
     </fieldset>
   </form>
 </template>
@@ -93,6 +93,10 @@ export default Vue.extend({
   padding: 0;
   font-family: "Raleway", "sans-serif";
   color: var(--gray);
+}
+
+.btn {
+  padding: 10px;
 }
 form {
   max-width: 400px;

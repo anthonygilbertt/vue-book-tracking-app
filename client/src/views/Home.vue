@@ -10,10 +10,12 @@
     <!-- <Footer /> -->
     <AddBook />
     <div class="book-list form-group" v-for="book in booksData" :key="book.id">
-      <label for="lname" class="col-form-label mt-1">Title:</label>
-      <input type="text" class="form-control" :value="book.title" />
-      <label for="lname" class="col-form-label mt-1">Author:</label>
-      <input type="text" class="form-control" :value="book.author" />
+      <div class="border">
+        <label for="lname" class="col-form-label mt-1">Title:</label>
+        <input type="text" class="form-control" :value="book.title" />
+        <label for="lname" class="col-form-label mt-1">Author:</label>
+        <input type="text" class="form-control" :value="book.author" />
+      </div>
     </div>
     <!--
     <div class="card">
@@ -39,7 +41,6 @@
     <button class="btn btn-primary" @click="getStatuses">
     <button class="btn btn-primary" @click="getBooks">Get Books</button>
     -->
-    <Footer />
   </div>
 </template>
 
@@ -50,7 +51,6 @@ import AddBook from "../components/AddBook.vue";
 // import Toread from "./components/Toread.vue";
 // import Reading from "./components/Reading.vue";
 // import Read from "./components/Read.vue";
-import Footer from "../components/Footer.vue";
 
 export default Vue.extend({
   name: "Home",
@@ -61,7 +61,6 @@ export default Vue.extend({
     // Toread,
     // Reading,
     // Read,
-    Footer,
   },
   data: () => {
     return {
@@ -145,7 +144,7 @@ export default Vue.extend({
   },
 });
 </script>
-<style>
+<style scoped>
 ul {
   list-style-type: none;
   padding: 0;
@@ -166,4 +165,29 @@ input[type="text"] {
   box-sizing: border-box;
 }
 */
+
+input,
+textarea {
+  border: 0;
+  border-bottom: 1px solid var(--navy-blue);
+  padding: 10px;
+  outline: none;
+  display: block;
+  width: 50%;
+  box-sizing: border-box;
+  /*margin: 20px 30%;*/
+  margin: 0 30% 0 25%;
+}
+.home {
+  padding-bottom: 5%;
+  margin-bottom: 5%;
+}
+.border {
+  /*border-style: solid;*/
+  border-style: outset;
+  border-color: red;
+  background-color: var(--navy-blue);
+  border-radius: 25px;
+  padding-bottom: 3%;
+}
 </style>

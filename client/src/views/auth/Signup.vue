@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="signup">
     <Navbar />
 
     <form @submit.prevent="handleSignup">
@@ -32,13 +32,11 @@
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1" class="form-label mt-4"
-            >Password</label
-          >
+          <label for="inputPassword" class="form-label mt-4">Password</label>
           <input
             type="password"
             class="form-control"
-            id="exampleInputPassword1"
+            id="inputPassword"
             placeholder="********"
             name="password"
             required
@@ -71,6 +69,31 @@ export default Vue.extend({
       console.log("username:", this.username);
       console.log("email: ", this.email);
       console.log("password: ", this.password);
+
+      const username = this.username;
+      const email = this.email;
+      const password = this.password;
+      const data = { username, email, password };
+
+      fetch("http://localhost:3000/signup", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+          //   "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      this.username = "";
+      this.email = "";
+      this.password = "";
+      alert("Signed up");
     },
   },
   // methods: {
@@ -121,7 +144,9 @@ form {
   border: 1px solid var(--navy-blue);
   background: white;
 }
-
+.btn {
+  padding: 10px;
+}
 input,
 textarea {
   border: 0;
@@ -132,5 +157,9 @@ textarea {
   width: 100%;
   box-sizing: border-box;
   margin: 20px auto;
+}
+.signup {
+  padding-bottom: 5%;
+  margin-bottom: 5%;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <!--<form @submit.prevent="handleSubmit">-->
-  <div>
+  <div class="login">
     <Navbar />
 
     <form @submit.prevent="loginHandler">
@@ -78,6 +78,29 @@ export default Vue.extend({
     async loginHandler() {
       console.log("email: ", this.email);
       console.log("password: ", this.password);
+
+      const email = this.email;
+      const password = this.password;
+      const data = { email, password };
+
+      fetch("http://localhost:3000/login", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+          //   "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      this.email = "";
+      this.password = "";
+      alert("Logged In");
     },
   },
 });
@@ -110,5 +133,13 @@ textarea {
   width: 100%;
   box-sizing: border-box;
   margin: 20px auto;
+}
+
+.btn {
+  padding: 10px;
+}
+.login {
+  padding-bottom: 5%;
+  margin-bottom: 5%;
 }
 </style>
