@@ -20,3 +20,7 @@ npm run dev
 
 ### DB
 ![](https://lucid.app/publicSegments/view/e67fe274-03e0-47d8-930b-040e8792c02c/image.png)
+
+```sh
+psql books-db
+```
